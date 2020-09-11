@@ -1,21 +1,32 @@
 # SLA
 
-**TODO: Add description**
+**Simple LDAP Authentication**
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ldap_auth` to your list of dependencies in `mix.exs`:
+Add to dependencies into `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:ldap_auth, "~> 0.1.0"}
+    {:sla, "~> 0.1.0"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/ldap_auth](https://hexdocs.pm/ldap_auth).
+Add config app into `config/config.exs`
+
+```elixir
+config :sla,
+  host: "127.0.0.1",
+  base: "ou=people,dc=example,dc=com",
+  port: 389,
+  pool_size: 10
+```
+
+Usage `iex -S mix`
+
+```
+SLA.verify_credendials("my_username", "my_password")
+```
 
