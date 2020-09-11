@@ -20,6 +20,7 @@ Add config app into `config/config.exs`
 config :sla,
   host: "127.0.0.1",
   base: "ou=people,dc=example,dc=com",
+  identifier: "uid",
   port: 389,
   pool_size: 10
 ```
@@ -29,4 +30,8 @@ Usage `iex -S mix`
 ```
 SLA.verify_credendials("my_username", "my_password")
 ```
+
+## TODO
+
+* SSL Support
 

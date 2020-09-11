@@ -16,7 +16,9 @@ defmodule SLA.Worker do
   end
 
   def handle_call({:verify_credentials, username, password}, _from, pid) do
-    response = :eldap.simple_bind(pid, 'uid=#{username},#{Application.get_env(:sla, :base)}', '#{password}')
+    response = :eldap.simple_bind(pid,
+      '#{Application.get_env(:sla, :identifier)}=#{username},#{Application.get_env(:sla, :base)}', '#{password}'
+    )
     case response do
       :ok  -> {:reply, :ok , pid}
       {:error, :invalidCredentials} -> {:reply, response, pid}
