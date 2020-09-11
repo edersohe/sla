@@ -1,4 +1,4 @@
-# LDAPAuth
+# SLA
 
 **TODO: Add description**
 
