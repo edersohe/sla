@@ -17,18 +17,21 @@ end
 Add config app into `config/config.exs`
 
 ```elixir
+# test server https://www.forumsys.com/tutorials/integration-how-to/ldap/online-ldap-test-server/
 config :sla,
-  host: "127.0.0.1",
-  base: "ou=people,dc=example,dc=com",
+  host: "ldap.forumsys.com",
+  base: "dc=example,dc=com",
   identifier: "uid",
+  bind: "cn=read-only-admin,dc=example,dc=com",
+  password: "password",
   port: 389,
-  pool_size: 10
+  pool_size: 2
 ```
 
 Usage `iex -S mix`
 
 ```
-SLA.verify_credendials("my_username", "my_password")
+SLA.verify_credendials("einstein", "password")
 ```
 
 ## TODO
