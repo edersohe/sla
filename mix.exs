@@ -5,6 +5,7 @@ defmodule SLA.MixProject do
     [
       app: :sla,
       version: "0.1.0",
+      description: "Simple LDAP authentication with pooling",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps()
